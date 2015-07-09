@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div>
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+    <p id="demo">HH:MM::SS</p>
+</div>
+
+<script>
+    var myVar=setInterval(function(){myTimer()},1000);
+
+    function myTimer() {
+        var d = new Date();
+        document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+    }
+</script>
+</body>
+</html>
