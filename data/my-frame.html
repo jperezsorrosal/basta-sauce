@@ -7,18 +7,46 @@
 <body>
 
 <div>
-    <button onclick="startTimer()">Start</button>
-    <button onclick="stopTimer()">Stop</button>
-    <p id="demo">HH:MM::SS</p>
+    <button onclick="startPomodoro()">Start</button>
+    <button onclick="stopPomodoro()">Stop</button>
+    <span id="demo"></span>
+    <span id="debug"></span>
 </div>
 
 <script>
-    var myVar=setInterval(function(){myTimer()},1000);
 
-    function myTimer() {
-        var d = new Date();
-        document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+
+    var startTime;
+    var pompdoroDuration = 5;
+    var timer;
+
+    function now()
+    {
+        return new Date().getTime();
     }
+
+    function startPomodoro()
+    {
+        startTime = now();
+        timer = setInterval(function(){ updateTimer()},1000);
+    }
+
+    function stopPomodoro()
+    {
+        clearInterval(timer);
+    }
+
+
+    function updateTimer()
+    {
+
+        var currentTime = now();
+        var msec = currentTime - startTime;
+        var dateDiff = new Date(msec)
+
+        document.getElementById("demo").innerHTML = dateDiff.toTimeString();
+    }
+
 </script>
 </body>
 </html>
