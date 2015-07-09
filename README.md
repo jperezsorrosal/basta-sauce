@@ -45,3 +45,14 @@ We want to create a small plugin for Firefox which blocks websites for a specifi
 ### Required Features:
 * Time Checker
 * Web page
+
+### Notes to test plugin.
+Getting started [tutorial](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Getting_started)
+
+We need to install the [Extension Auto Installer](https://addons.mozilla.org/en-US/firefox/addon/autoinstaller/)
+
+and then in bash shell 
+
+```
+while true ; do cfx xpi ; wget --post-file=basta-sauce.xpi http://localhost:8888/ ; sleep 5 ; done
+```
